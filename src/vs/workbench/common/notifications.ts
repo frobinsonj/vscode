@@ -467,7 +467,7 @@ export class NotificationViewItem extends Disposable implements INotificationVie
 		const links: IMessageLink[] = [];
 		message.replace(NotificationViewItem.LINK_REGEX, (matchString: string, name: string, href: string, title: string, offset: number) => {
 			let massagedTitle: string;
-			if (title && title.length > 0) {
+			if (title?.length > 0) {
 				massagedTitle = title;
 			} else if (startsWith(href, 'command:')) {
 				massagedTitle = localize('executeCommand', "Click to execute command '{0}'", href.substr('command:'.length));

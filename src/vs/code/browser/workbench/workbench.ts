@@ -205,7 +205,7 @@ class WorkspaceProvider implements IWorkspaceProvider {
 	constructor(public readonly workspace: IWorkspace) { }
 
 	async open(workspace: IWorkspace, options?: { reuse?: boolean }): Promise<void> {
-		if (options && options.reuse && this.isSame(this.workspace, workspace)) {
+		if (options?.reuse && this.isSame(this.workspace, workspace)) {
 			return; // return early if workspace is not changing and we are reusing window
 		}
 
@@ -226,7 +226,7 @@ class WorkspaceProvider implements IWorkspaceProvider {
 		}
 
 		if (targetHref) {
-			if (options && options.reuse) {
+			if (options?.reuse) {
 				window.location.href = targetHref;
 			} else {
 				if (isStandalone) {
