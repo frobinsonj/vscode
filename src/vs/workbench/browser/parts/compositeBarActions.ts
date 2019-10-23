@@ -158,16 +158,8 @@ export class ActivityActionViewItem extends BaseActionViewItem {
 		if (this.label) {
 			if (this.options.icon) {
 				const foreground = this._action.checked ? colors.activeBackgroundColor || colors.activeForegroundColor : colors.inactiveBackgroundColor || colors.inactiveForegroundColor;
-				// TODO @misolori find a cleaner way to do this
-				const isExtension = this.activity.cssClass?.indexOf('extensionViewlet') === 0;
-				if (!isExtension) {
-					// Apply foreground color to activity bar items (codicons)
-					this.label.style.color = foreground ? foreground.toString() : '';
-				} else {
-					// Apply background color to extensions + remote explorer (svgs)
 
-					this.label.style.backgroundColor = foreground ? foreground.toString() : '';
-				}
+				this.label.style.color = foreground ? foreground.toString() : '';
 			} else {
 				const foreground = this._action.checked ? colors.activeForegroundColor : colors.inactiveForegroundColor;
 				const borderBottomColor = this._action.checked ? colors.activeBorderBottomColor : null;
